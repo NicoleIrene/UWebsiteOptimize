@@ -425,7 +425,7 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.getElementsByClassName("randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -513,7 +513,7 @@ function updatePositions() {
   var top = (document.body.scrollTop || document.documentElement.scrollTop) / 1250;
   for (var i = 0, len = items.length, phase; i < len; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
-    phase = Math.sin((scrollTop / 1250) + (i % 5));
+    phase = Math.sin((top) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
